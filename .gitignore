@@ -1,0 +1,10 @@
+.DS_Store
+target
+*.class
+src/main/webapp/WEB-INF/classes
+src/main/webapp/WEB-INF/lib/
+lib
+.classpath
+.project
+.settings
+
