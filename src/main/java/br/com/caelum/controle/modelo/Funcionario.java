@@ -10,6 +10,15 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Funcionario {
+	
+	
+
+	public Funcionario(String nome, String matricula, Calendar dataNascimento) {
+		super();
+		this.nome = nome;
+		this.matricula = matricula;
+		this.dataNascimento = dataNascimento;
+	}
 
 	@Id
 	@GeneratedValue
@@ -125,6 +134,15 @@ public class Funcionario {
 
 	public void setRg(String rg) {
 		this.rg = rg;
+	}
+
+	@Override
+	public String toString() {
+		return "Funcionario [id=" + id + ", nome=" + nome + ", matricula="
+				+ matricula + ", dataNascimento=" + dataNascimento + ", cpf="
+				+ cpf + ", rg=" + rg + ", logradouro=" + logradouro
+				+ ", numero=" + numero + ", cep=" + cep + ", bairro=" + bairro
+				+ ", cidade=" + cidade + ", estado=" + estado + "]";
 	}
 
 }
