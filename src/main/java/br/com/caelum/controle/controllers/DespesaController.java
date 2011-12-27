@@ -3,7 +3,7 @@ package br.com.caelum.controle.controllers;
 import java.util.List;
 
 import br.com.caelum.controle.dao.DespesaDAO;
-import br.com.caelum.controle.modelo.Despesa;
+import br.com.caelum.controle.modelo.Gasto;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -26,12 +26,12 @@ public class DespesaController {
 	}
 	
 	@Get("/despesas")
-	public List<Despesa> index() {
+	public List<Gasto> index() {
 		return repository.findAll();
 	}
 	
 	@Post("/despesas")
-	public void create(Despesa despesa) {
+	public void create(Gasto despesa) {
 		validator.validate(despesa);
 		validator.onErrorUsePageOf(this).newDespesa();
 		repository.create(despesa);
@@ -39,12 +39,12 @@ public class DespesaController {
 	}
 	
 	@Get("/despesas/new")
-	public Despesa newDespesa() {
-		return new Despesa();
+	public Gasto newDespesa() {
+		return new Gasto();
 	}
 	
 	@Put("/despesas")
-	public void update(Despesa despesa) {
+	public void update(Gasto despesa) {
 		validator.validate(despesa);
 		validator.onErrorUsePageOf(this).edit(despesa);
 		repository.update(despesa);
@@ -52,17 +52,17 @@ public class DespesaController {
 	}
 	
 	@Get("/despesas/{despesa.id}/edit")
-	public Despesa edit(Despesa despesa) {
+	public Gasto edit(Gasto despesa) {
 		return repository.find(despesa.getId());
 	}
 
 	@Get("/despesas/{despesa.id}")
-	public Despesa show(Despesa despesa) {
+	public Gasto show(Gasto despesa) {
 		return repository.find(despesa.getId());
 	}
 
 	@Delete("/despesas/{despesa.id}")
-	public void destroy(Despesa despesa) {
+	public void destroy(Gasto despesa) {
 		repository.destroy(repository.find(despesa.getId()));
 		result.redirectTo(this).index();  
 	}

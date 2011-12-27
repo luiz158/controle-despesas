@@ -7,18 +7,18 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.caelum.controle.modelo.Despesa;
+import br.com.caelum.controle.modelo.Gasto;
 import br.com.caelum.controle.modelo.Funcionario;
 import br.com.caelum.controle.modelo.TipoDespesa;
 
-public class ImportadorDespesasGasolina implements Importador {
+public class ImportadorDespesasGasolina implements ImportadorBla {
 
 	private final static SimpleDateFormat df = new SimpleDateFormat("ddMMyyyy");
 
 	@Override
-	public List<Despesa> importa(InputStream entrada) {
+	public List<Gasto> importa(InputStream entrada) {
 		Scanner sc = new Scanner(entrada);
-		List<Despesa> despesas = new ArrayList<Despesa>();
+		List<Gasto> despesas = new ArrayList<Gasto>();
 
 		while (sc.hasNextLine()) {
 			String linha = sc.nextLine();
@@ -29,7 +29,7 @@ public class ImportadorDespesasGasolina implements Importador {
 
 	}
 
-	private Despesa parseLineToDespesa(String linha) {
+	private Gasto parseLineToDespesa(String linha) {
 		try {
 			String[] dados = linha.split(",");
 
@@ -43,7 +43,7 @@ public class ImportadorDespesasGasolina implements Importador {
 			Calendar data = Calendar.getInstance();
 			data.setTime(df.parse(dados[1]));
 			
-			return new Despesa(tipo, val / 100, func, data);
+			return new Gasto(tipo, val / 100, func, data);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -2,7 +2,7 @@ package br.com.caelum.controle.dao;
 
 import java.util.List;
 
-import br.com.caelum.controle.modelo.Despesa;
+import br.com.caelum.controle.modelo.Gasto;
 
 
 public interface DespesaDAO {
@@ -10,14 +10,14 @@ public interface DespesaDAO {
 	 * Delete the methods you don't want to expose
 	 */
 	 
-	void create(Despesa entity);
+	void create(Gasto entity);
 	
-	Despesa update(Despesa entity);
+	Gasto update(Gasto entity);
 	
-	void destroy(Despesa entity);
+	void destroy(Gasto entity);
 	
-	Despesa find(Long id);
+	Gasto find(Long id);
 	
-	List<Despesa> findAll();
+	List<Gasto> findAll();
 
 }

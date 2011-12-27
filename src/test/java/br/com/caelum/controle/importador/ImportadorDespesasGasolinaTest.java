@@ -8,7 +8,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import br.com.caelum.controle.modelo.Despesa;
+import br.com.caelum.controle.modelo.Gasto;
 import br.com.caelum.controle.modelo.TipoDespesa;
 
 public class ImportadorDespesasGasolinaTest {
@@ -19,9 +19,9 @@ public class ImportadorDespesasGasolinaTest {
 				+ "GASOLINA,21122011,000010100,22222222222\r\n"
 				+ "GASOLINA,21122011,000003043,33333333333\r\n";
 
-		Importador importador = new ImportadorDespesasGasolina();
+		ImportadorBla importador = new ImportadorDespesasGasolina();
 
-		List<Despesa> list = importador.importa(new ByteArrayInputStream(
+		List<Gasto> list = importador.importa(new ByteArrayInputStream(
 				conteudo.getBytes("UTF-8")));
 
 		Assert.assertEquals(3, list.size());

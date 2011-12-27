@@ -9,6 +9,6 @@ public class Principal {
 		Funcionario funcionario = new Funcionario("sdfsdf", "DSfsdfsdf",
 				dataNascimento);
 		System.out.println(funcionario);
-
+		
 	}
 }
